@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
+}
+
+.hero .carousel {
+    width: 300px;
+    margin: 100px auto 0;
+    overflow: visible;
+}
+
+.carousel img {
+    -webkit-box-reflect: below 20px linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+}
+
+.backbtn {
+    position: fixed;
+    bottom: 8%;
+    right: 18px;
+    text-align: center;
+    color: palevioletred;
+}
+
+.backbtn .floating {
+    width: 55px;
+    height: 55px;
+    background: url(backbtn.png);
+    border-radius: 40%;
+    background-repeat: no-repeat;
+    background-color: palevioletred;
+    background-size: 20px;
+    background-position: center;
+    float: right;
+    margin: 0 auto;
+    cursor: pointer;
+    box-sizing: 0 -2px 3px -1px #FFB6C1;
+}
