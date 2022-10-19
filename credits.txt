@@ -1,11 +1,8 @@
 
 CREDITS
 
-Modifications
+Cryptech
 https://chatwith.io/s/cryptech
-
-Snapshot Template
-http://www.templatemo.com/tm-493-snapshot
 
 Bootstrap
 http://getbootstrap.com/
@@ -24,5 +21,4 @@ Animate CSS
 https://daneden.github.io/animate.css/
 
 OwlCarousel
-
 http://www.owlcarousel.owlgraphic.com/

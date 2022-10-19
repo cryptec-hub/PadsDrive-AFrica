@@ -7,11 +7,16 @@
     <title>6th March Project</title>
     <link rel="stylesheet" href="Project3_style.css">
     <link rel="icon" type="image/x-icon" href="C:\Users\Admin\Downloads\Compressed\PadsDrive Africa\PadsDrive AFrica\images\slide-img1.jpg">
-    <link rel="stylesheet" href="jquery.flipster.min.css">
-    <link rel="stylesheet" href="C:/Users/Admin/Downloads/Compressed/fontawesome-free-5.15.3-web/fontawesome-free-5.15.3-web/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.flipster/1.1.5/jquery.flipster.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
 <body>
+
+    <div class="preloader">
+        <div class="sk-spinner sk-spinner-pulse"></div>
+    </div>
+
     <div class="hero">
         <div class="carousel">
             <ul>
@@ -22,8 +27,6 @@
                 <li><img src="images\IMG-20210314-WA0025.jpg"></li>
                 <li><img src="images\IMG-20210413-WA0022.jpg"></li>
                 <li><img src="images\IMG-20210413-WA0035.jpg"></li>
-                <li><img src="images\IMG-20210314-WA0035.jpg"></li>
-                <li><img src="images\IMG-20210314-WA0036.jpg"></li>
                 <li><img src="images\IMG_20210416_145159_559.JPG"></li>
                 <li><img src="images\IMG_20210422_075539_702.JPG"></li>
                 <li><img src="images\IMG-20210314-WA0000.jpg"></li>
@@ -46,12 +49,17 @@
 
     <div class="backbtn">
         <div class="floating">
-            <a href="index.html" class="floating"></a>
+            <a href="..\..\index.html#gallery" class="floating"></a>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="jquery.flipster.min.js"></Script>
+    <script>
+        $(window).on('load', function () {
+            $('.preloader').fadeOut(1000); // set duration in brackets    
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.flipster/1.1.5/jquery.flipster.min.js"></Script>
     <script>
         $('.carousel').flipster({
             style: 'carousel',
