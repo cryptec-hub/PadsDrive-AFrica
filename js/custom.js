@@ -1,48 +1,47 @@
-
 /* jQuery Pre loader
  -----------------------------------------------*/
 $(window).load(function () {
-  $('.preloader').fadeOut(1000); // set duration in brackets    
+  $(".preloader").fadeOut(1000); // set duration in brackets
 });
 
-
 $(document).ready(function () {
-
   /* Hide mobile menu after clicking on a link
     -----------------------------------------------*/
-  $('.navbar-collapse a').click(function () {
-    $(".navbar-collapse").collapse('hide');
+  $(".navbar-collapse a").click(function () {
+    $(".navbar-collapse").collapse("hide");
   });
-
 
   /* Smoothscroll js
   -----------------------------------------------*/
   $(function () {
-    $('.navbar-default a').bind('click', function (event) {
+    $(".navbar-default a").bind("click", function (event) {
       var $anchor = $(this);
-      $('html, body').stop().animate({
-        scrollTop: $($anchor.attr('href')).offset().top - 49
-      }, 1000);
+      $("html, body")
+        .stop()
+        .animate(
+          {
+            scrollTop: $($anchor.attr("href")).offset().top - 49,
+          },
+          1000
+        );
       event.preventDefault();
     });
   });
 
-
   /* Home Slideshow Vegas
    -----------------------------------------------*/
   $(function () {
-    $('body').vegas({
+    $("body").vegas({
       slides: [
-        { src: 'images/slide-img1.jpg' },
-        { src: 'images/slide-img2.jpg' },
-        { src: 'images/slide-img3.jpg' }
+        { src: "images/slide-img1.jpg" },
+        { src: "images/slide-img2.jpg" },
+        { src: "images/slide-img3.jpg" },
       ],
       timer: false,
-      transition: ['zoomIn',],
-      animation: ['kenburns']
+      transition: ["zoomIn"],
+      animation: ["kenburns"],
     });
   });
-
 
   /* Team carousel
   -----------------------------------------------*/
@@ -59,47 +58,53 @@ $(document).ready(function () {
     });
   });
 
-
   /* Back to Top
   -----------------------------------------------*/
   $(window).scroll(function () {
     if ($(this).scrollTop() > 200) {
-      $('.go-top').fadeIn(200);
+      $(".go-top").fadeIn(200);
     } else {
-      $('.go-top').fadeOut(200);
+      $(".go-top").fadeOut(200);
     }
   });
   // Animate the scroll to top
-  $('.go-top').click(function (event) {
+  $(".go-top").click(function (event) {
     event.preventDefault();
-    $('html, body').animate({ scrollTop: 0 }, 300);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
-
 
   /* wow
   -------------------------------*/
   new WOW({ mobile: false }).init();
-
 });
 
+const btn = document.getElementById("button");
+var id = document.getElementById("email");
+var nameInput = document.getElementById("name");
+var message = document.getElementById("message");
 
-const btn = document.getElementById('button');
+document.getElementById("form").addEventListener("submit", function (event) {
+  event.preventDefault();
 
-document.getElementById('form')
-  .addEventListener('submit', function (event) {
-    event.preventDefault();
+  btn.value = "Sending...";
 
-    btn.value = 'Sending...';
+  const serviceID = "padsdrive";
+  const templateID = "template_iz9p55e";
 
-    const serviceID = 'padsdrive';
-    const templateID = 'template_iz9p55e';
-
-    emailjs.sendForm(serviceID, templateID, this)
-      .then(() => {
-        btn.value = 'Send Email';
-        alert('Sent!');
-      }, (err) => {
-        btn.value = 'Send Email';
-        alert(JSON.stringify(err));
-      });
-  });
+  emailjs.sendForm(serviceID, templateID, this).then(
+    () => {
+      btn.value = "Send Email";
+      alert("Sent!");
+      message.value = "";
+      nameInput.value = "";
+      id.value = "";
+    },
+    (err) => {
+      btn.value = "Send Email";
+      alert(JSON.stringify(err));
+      message.value = "";
+      nameInput.value = "";
+      id.value = "";
+    }
+  );
+});
