@@ -79,11 +79,9 @@ $(document).ready(function () {
 });
 
 const btn = document.getElementById("button");
-const id = document.getElementById("id");
-const nameInput = document.getElementById("name");
-const message = document.getElementById("message");
-
-const all = (id = nameInput = message);
+var id = document.getElementById("email");
+var nameInput = document.getElementById("name");
+var message = document.getElementById("message");
 
 document.getElementById("form").addEventListener("submit", function (event) {
   event.preventDefault();
@@ -97,12 +95,16 @@ document.getElementById("form").addEventListener("submit", function (event) {
     () => {
       btn.value = "Send Email";
       alert("Sent!");
-      all.value = "";
+      message.value = "";
+      nameInput.value = "";
+      id.value = "";
     },
     (err) => {
       btn.value = "Send Email";
       alert(JSON.stringify(err));
-      all.value = "";
+      message.value = "";
+      nameInput.value = "";
+      id.value = "";
     }
   );
 });
