@@ -82,6 +82,10 @@ const btn = document.getElementById("button");
 var id = document.getElementById("email");
 var nameInput = document.getElementById("name");
 var message = document.getElementById("message");
+function changeButton() {
+  btn.value = "Email Sent!!";
+  btn.style.background = "#00ff00";
+}
 
 document.getElementById("form").addEventListener("submit", function (event) {
   event.preventDefault();
@@ -93,18 +97,23 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
   emailjs.sendForm(serviceID, templateID, this).then(
     () => {
-      btn.value = "Send Email";
-      alert("Sent!");
+      changeButton();
       message.value = "";
       nameInput.value = "";
       id.value = "";
+      setTimeout(() => {
+        btn.value = "Send Email";
+        btn.style.background = "#e44c65";
+      }, 3000);
     },
     (err) => {
-      btn.value = "Send Email";
-      alert(JSON.stringify(err));
+      btn.value = "Something went wrong... try again.";
       message.value = "";
       nameInput.value = "";
       id.value = "";
+      setTimeout(() => {
+        btn.value = "Send Email";
+      }, 5000);
     }
   );
 });
